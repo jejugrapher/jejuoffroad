@@ -92,7 +92,7 @@
     el.className = 'yt' + (kind === 'tv' ? ' yt-tv' : '');
     el.innerHTML =
       '<button class="yt-thumb" data-id="' + v.id + '" aria-label="' + v.title + ' 재생">' +
-      '<img src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="" loading="lazy">' +
+      '<img src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="" decoding="async" width="480" height="360">' +
       '<span class="yt-play" aria-hidden="true"></span></button>' +
       '<div class="yt-meta">' +
       (v.show ? '<span class="yt-show">' + v.show + '</span>' : '') +
