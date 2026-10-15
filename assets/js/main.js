@@ -157,6 +157,16 @@
     ['비 오는 날에도 운행하나요?', '운행합니다. 개방형 캐빈이라 비가 들이칠 수 있어 우비를 준비해 주세요. 기상 악화로 통제될 경우 전액 환불됩니다.']
   ];
   var fb = document.getElementById('faq');
+  if (document.body.dataset.page === 'visit') {
+    ld({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map(function (f) {
+        return { '@type': 'Question', name: f[0],
+                 acceptedAnswer: { '@type': 'Answer', text: f[1] } };
+      })
+    });
+  }
   if (window.PAGE_FAQ && window.PAGE_FAQ.length) faqs = window.PAGE_FAQ;
   void h1Faqs;
   if (fb) faqs.forEach(function (f, i) {
@@ -165,6 +175,69 @@
     d.innerHTML = '<summary>' + f[0] + '</summary><p>' + f[1] + '</p>';
     fb.appendChild(d);
   });
+
+  /* ---- 구조화 데이터(JSON-LD) — 값은 모두 fact.js 에서 가져온다 ----
+     confirmed:false 인 요금은 검색엔진에 노출하지 않는다(오표시 방지). */
+  function ld(obj) {
+    var el = document.createElement('script');
+    el.type = 'application/ld+json';
+    el.textContent = JSON.stringify(obj);
+    document.head.appendChild(el);
+  }
+  var BASE = 'https://jejugrapher.github.io/jejuoffroad/';
+  var page = document.body.dataset.page || '';
+  var B = F.brand;
+
+  var biz = {
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'TouristAttraction'],
+    name: B.nameKo.v,
+    alternateName: B.nameEn.v,
+    description: '제주 조천 13만 평 사유지 곶자왈과 초원을 달리는 오프로드 투어.',
+    url: BASE,
+    telephone: B.tel.v,
+    email: B.email.v,
+    image: BASE + 'assets/img/og-image.jpg',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: B.addrRoad.v.replace('제주특별자치도 제주시 ', ''),
+      addressLocality: '제주시',
+      addressRegion: '제주특별자치도',
+      addressCountry: 'KR'
+    },
+    openingHours: 'Mo-Su 10:00-17:00',
+    founder: { '@type': 'Person', name: B.ceo.v }
+  };
+  if (page === 'home') ld(biz);
+
+  if (page === 'vehicle') {
+    var k = document.body.dataset.vehicle;
+    var v = F[k];
+    var card = (F.vehicles.filter(function (x) { return x.id === k; })[0]) || null;
+    var prod = {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: document.querySelector('.vh-title') ? document.querySelector('.vh-title').childNodes[0].nodeValue.trim() : k,
+      description: v && v.origin ? v.origin.v : '',
+      brand: { '@type': 'Brand', name: v && v.maker ? v.maker.v : B.nameKo.v },
+      image: BASE + (document.querySelector('.vh-hero-media img') ? document.querySelector('.vh-hero-media img').getAttribute('src') : 'assets/img/og-image.jpg')
+    };
+    ld(prod);
+  }
+
+  if (page === 'media' && F.videos) {
+    F.videos.broadcast.concat(F.videos.own).forEach(function (v) {
+      ld({
+        '@context': 'https://schema.org',
+        '@type': 'VideoObject',
+        name: v.title,
+        description: (v.show || v.tag || '') + ' · 제라진 오프로드',
+        thumbnailUrl: 'https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg',
+        embedUrl: 'https://www.youtube.com/embed/' + v.id,
+        uploadDate: '2019-01-01'
+      });
+    });
+  }
 
   /* ---- 코스 이벤트 핀 16개 ---- */
   var track = document.getElementById('track');

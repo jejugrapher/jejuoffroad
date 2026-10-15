@@ -5,9 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>미디어 | 제라진 오프로드</title>
 <meta name="description" content="tvN 바퀴 달린 집·짠내투어 방영, 제라진어드벤쳐TV, 360 코스 미리보기.">
+<link rel="canonical" href="https://jejugrapher.github.io/jejuoffroad/media.html">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta name="theme-color" content="#121110">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="제라진 오프로드">
+<meta property="og:title" content="미디어 | 제라진 오프로드">
+<meta property="og:description" content="tvN 바퀴 달린 집·짠내투어 방영, 제라진어드벤쳐TV, 360 코스 미리보기.">
+<meta property="og:image" content="https://jejugrapher.github.io/jejuoffroad/assets/img/og-image.jpg">
+<meta property="og:url" content="https://jejugrapher.github.io/jejuoffroad/media.html">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="assets/css/style.css?v=20261016b">
 </head>
-<body class="sub">
+<body class="sub" data-page="media">
 
 <header class="hdr solid" id="hdr">
   <div class="hdr-in">
@@ -63,14 +74,21 @@
   </div>
 </section>
 
-<section class="vh-course">
-  <div class="vh-course-bg"><img src="assets/img/pano360.jpg" alt="" loading="lazy"><div class="eco-scrim"></div></div>
-  <div class="wrap vh-course-in">
-    <p class="eyebrow">360° EXPERIENCE</p>
-    <h2 class="sec-title">360°로 먼저 타봅니다</h2>
-    <p class="vh-txt">8K 360 영상으로 촬영한 코스를 드래그해 둘러보는 인터랙티브 섹션입니다.
-      영상에 기록된 GPS로 코스맵의 구간과 연결됩니다.</p>
-    <div class="vh-course-cta"><a class="btn btn-line" href="course.html">코스맵 보기</a></div>
+<section class="pano-sec" id="pano360">
+  <div class="wrap">
+    <p class="eyebrow">360&deg; PREVIEW</p>
+    <h2 class="sec-title">타기 전에 먼저 둘러보세요</h2>
+    <p class="sec-sub">8K 360 카메라로 촬영한 코스 위 지점입니다. 드래그하면 사방을 둘러볼 수 있고, 휠로 당겨볼 수 있습니다.</p>
+    <div class="pano-tabs">
+      <button class="pano-tab on" data-src="assets/img/pano-course1.jpg">곶자왈 진입 구간</button>
+      <button class="pano-tab" data-src="assets/img/pano-course2.jpg">초원 구간</button>
+      <button class="pano-tab" data-src="assets/img/pano-pond.jpg">선새미못</button>
+    </div>
+    <div class="pano" id="pano" data-src="assets/img/pano-course1.jpg"
+         style="background-image:url('assets/img/pano-course1.jpg')">
+      <button class="pano-start">360&deg; 둘러보기</button>
+    </div>
+    <p class="map-note">※ 실제 구축 시에는 360 영상의 GPS 데이터로 코스맵 구간과 연결됩니다.</p>
   </div>
 </section>
 
@@ -125,5 +143,6 @@
 
 <script src="assets/js/fact.js?v=20261016b"></script>
 <script src="assets/js/main.js?v=20261016b"></script>
+<script src="assets/js/pano.js?v=20261016b"></script>
 </body>
 </html>
