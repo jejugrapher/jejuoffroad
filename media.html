@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>미디어 | 제라진 오프로드</title>
 <meta name="description" content="tvN 바퀴 달린 집·짠내투어 방영, 제라진어드벤쳐TV, 360 코스 미리보기.">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=20261016b">
 </head>
 <body class="sub">
 
@@ -24,7 +24,7 @@
       <a href="visit.html">VISIT &amp; FAQ</a>
     </nav>
     <div class="hdr-right">
-      <span class="badge-tv">tvN 바퀴 달린 집 · 짠내투어</span>
+      <span class="badge-tv" data-fact="media.badge"></span>
       <a class="lang" href="#">KO<span>|</span>EN</a>
       <a class="btn btn-accent btn-sm" href="reserve.html">예약하기</a>
       <button class="burger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
@@ -38,33 +38,28 @@
   <div class="wrap ph-head-in">
     <p class="eyebrow">MEDIA &amp; GALLERY</p>
     <h1 class="ph-title">방송이 먼저 찾아온 곳</h1>
-    <p class="ph-lead">tvN 바퀴 달린 집, 더 짠내투어 방영. 자체 채널 제라진어드벤쳐TV에서 주행 영상과 30분 ASMR을 운영합니다.</p>
+    <p class="ph-lead">KBS 배틀트립, tvN Joy 더 짠내투어·서울메이트3 방영. 자체 채널에서는 주행 영상과 30분 오프로드 ASMR을 운영합니다.</p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
     <p class="eyebrow">ON AIR</p>
-    <h2 class="sec-title">방송 출연</h2>
-    <div class="media-grid">
-      <article class="m-card m-tv">
-        <div class="m-thumb"><span class="m-ph">방송 클립 자리</span></div>
-        <h3>tvN &lsquo;바퀴 달린 집&rsquo;</h3><p>제주 원시림 편에 제라진 오프로드 체험이 방영되었습니다.</p>
-      </article>
-      <article class="m-card m-tv">
-        <div class="m-thumb"><span class="m-ph">방송 클립 자리</span></div>
-        <h3>tvN &lsquo;더 짠내투어&rsquo;</h3><p>제주 이색 체험·스릴 액티비티 코스로 소개되었습니다.</p>
-      </article>
-      <article class="m-card m-yt">
-        <div class="m-thumb"><span class="m-ph">YouTube 임베드 자리</span></div>
-        <h3>험비 다큐</h3><p>주력 군용 차량 험비의 기술적 특성을 조명한 기획 영상.</p>
-      </article>
-      <article class="m-card m-yt">
-        <div class="m-thumb"><span class="m-ph">YouTube 임베드 자리</span></div>
-        <h3>오프로드 ASMR 30&prime;</h3><p>자갈을 밟는 타이어 소리, 디젤 엔진음, 자연의 백색 소음.</p>
-      </article>
+    <h2 class="sec-title">방송에 나온 제라진</h2>
+    <p class="sec-sub">방송사 공식 채널에 올라온 클립입니다. 썸네일을 누르면 이 자리에서 바로 재생됩니다.</p>
+    <div class="yt-grid" id="ytBroadcast"></div>
+  </div>
+</section>
+
+<section class="vh-spec">
+  <div class="wrap">
+    <p class="eyebrow">JERAZIN ADVENTURES</p>
+    <h2 class="sec-title">자체 채널</h2>
+    <p class="sec-sub">한초이 마스터가 직접 운영하는 유튜브 채널. 험비 다큐부터 30분짜리 오프로드 ASMR까지.</p>
+    <div class="yt-grid yt-grid-4" id="ytOwn"></div>
+    <div class="yt-more">
+      <a class="btn btn-line" id="ytChannel" href="#" target="_blank" rel="noopener">채널 전체 보기 →</a>
     </div>
-    <p class="img-note">※ 방송 클립은 사용 협의 후 삽입합니다. 유튜브는 API 연동으로 최신 영상이 자동 반영되게 합니다.</p>
   </div>
 </section>
 
@@ -128,7 +123,7 @@
   </div>
 </div>
 
-<script src="assets/js/fact.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="assets/js/fact.js?v=20261016b"></script>
+<script src="assets/js/main.js?v=20261016b"></script>
 </body>
 </html>

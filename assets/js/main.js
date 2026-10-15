@@ -85,6 +85,59 @@
     });
   }
 
+
+  /* ---- 유튜브 라이트 임베드 (클릭해야 iframe 로드 — 초기 로딩 부담 없음) ---- */
+  function ytCard(v, kind) {
+    var el = document.createElement('article');
+    el.className = 'yt' + (kind === 'tv' ? ' yt-tv' : '');
+    el.innerHTML =
+      '<button class="yt-thumb" data-id="' + v.id + '" aria-label="' + v.title + ' 재생">' +
+      '<img src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="" loading="lazy">' +
+      '<span class="yt-play" aria-hidden="true"></span></button>' +
+      '<div class="yt-meta">' +
+      (v.show ? '<span class="yt-show">' + v.show + '</span>' : '') +
+      (v.tag ? '<span class="yt-show">' + v.tag + '</span>' : '') +
+      '<h3>' + v.title + '</h3>' +
+      (v.date ? '<span class="yt-date">' + v.date + '</span>' : '') +
+      '</div>';
+    el.querySelector('.yt-thumb').addEventListener('click', function (e) {
+      var b = e.currentTarget;
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.id + '?autoplay=1&rel=0';
+      f.title = v.title;
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture';
+      f.allowFullscreen = true;
+      f.loading = 'lazy';
+      b.replaceWith(f);
+    });
+    return el;
+  }
+  ['ytBroadcast', 'ytOwn'].forEach(function (id) {
+    var box = document.getElementById(id);
+    if (!box) return;
+    var list = id === 'ytBroadcast' ? F.videos.broadcast : F.videos.own;
+    var limit = +box.dataset.limit || list.length;
+    list.slice(0, limit).forEach(function (v) {
+      box.appendChild(ytCard(v, id === 'ytBroadcast' ? 'tv' : 'own'));
+    });
+  });
+
+  var refBox = document.getElementById('ytRefGrid');
+  if (refBox && F.refVideos && F.refVideos[refBox.dataset.key]) {
+    var r = F.refVideos[refBox.dataset.key];
+    var card = ytCard({ id: r.id, title: r.title, show: '외부 영상 · ' + r.channel }, 'tv');
+    card.classList.add('yt-ref-card');
+    refBox.appendChild(card);
+    var n = document.createElement('p');
+    n.className = 'img-note';
+    n.style.gridColumn = '1 / -1';
+    n.textContent = '※ ' + r.channel + ' 채널의 영상입니다. 제라진캠프 제작물이 아닙니다.';
+    refBox.appendChild(n);
+  }
+
+  var chBtn = document.getElementById('ytChannel');
+  if (chBtn) { chBtn.href = F.media.channelUrl.v; chBtn.textContent = F.media.channel.v + ' 채널 전체 보기 →'; }
+
   /* ---- FAQ ---- */
   var faqs = [
     ['제가 직접 운전할 수 있나요?', '불가능합니다. 험지 주파는 고도의 기술이 필요해 모든 투어는 베테랑 전문 드라이버가 운행합니다.'],

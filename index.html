@@ -6,7 +6,7 @@
 <title>제라진 오프로드 | 제주 조천 오프로드 투어</title>
 <meta name="description" content="13만 평 사유지 곶자왈과 초원을 달리는 제주 유일의 대규모 오프로드 투어. 6.5km 코스, 16개 익스트림 구간, 전문 드라이버 운행.">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=20261016b">
 </head>
 <body>
 
@@ -26,7 +26,7 @@
       <a href="visit.html">VISIT &amp; FAQ</a>
     </nav>
     <div class="hdr-right">
-      <span class="badge-tv" title="방송 출연 이력">tvN 바퀴 달린 집 · 짠내투어</span>
+      <span class="badge-tv" title="방송 출연 이력" data-fact="media.badge"></span>
       <a class="lang" href="#" aria-label="언어 선택">KO<span>|</span>EN</a>
       <a class="btn btn-accent btn-sm" href="reserve.html">예약하기</a>
       <button class="burger" id="burger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
@@ -196,25 +196,14 @@
   <div class="wrap">
     <p class="eyebrow">MEDIA &amp; PRESS</p>
     <h2 class="sec-title">방송이 먼저 찾아온 곳</h2>
-    <div class="media-grid">
-      <article class="m-card m-tv">
-        <div class="m-thumb"><span class="m-ph">방송 클립 자리</span></div>
-        <h3>tvN &lsquo;바퀴 달린 집&rsquo;</h3><p>제주 원시림 편에 제라진 오프로드 체험이 방영되었습니다.</p>
-      </article>
-      <article class="m-card m-tv">
-        <div class="m-thumb"><span class="m-ph">방송 클립 자리</span></div>
-        <h3>tvN &lsquo;더 짠내투어&rsquo;</h3><p>제주 이색 체험·스릴 액티비티 코스로 소개되었습니다.</p>
-      </article>
-      <article class="m-card">
-        <div class="m-thumb m-360" style="background-image:url('assets/img/pano360.jpg')">
-          <span class="m-ph">360° 인터랙티브 체험 자리</span>
-        </div>
-        <h3>360° 코스 미리보기</h3><p>8K 360 영상으로 탑승 전 코스를 둘러봅니다. GPS 연동으로 코스맵과 연결됩니다.</p>
-      </article>
-      <article class="m-card">
-        <div class="m-thumb m-yt"><span class="m-ph">YouTube 임베드 자리</span></div>
-        <h3 data-fact="media.channel"></h3><p>험비 다큐, 주행 영상, 30분 오프로드 ASMR.</p>
-      </article>
+    <p class="sec-sub">방송사 공식 채널 클립입니다. 썸네일을 누르면 사이트를 떠나지 않고 바로 재생됩니다.</p>
+    <div class="yt-grid" id="ytBroadcast"></div>
+
+    <h3 class="rsv-h3" style="margin-top:44px">자체 채널 <span data-fact="media.channel"></span></h3>
+    <div class="yt-grid yt-grid-4" id="ytOwn" data-limit="4"></div>
+    <div class="yt-more">
+      <a class="btn btn-line" href="media.html">미디어 전체 보기</a>
+      <a class="btn btn-line" id="ytChannel" href="#" target="_blank" rel="noopener">채널 바로가기</a>
     </div>
   </div>
 </section>
@@ -354,7 +343,7 @@
   </div>
 </div>
 
-<script src="assets/js/fact.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="assets/js/fact.js?v=20261016b"></script>
+<script src="assets/js/main.js?v=20261016b"></script>
 </body>
 </html>

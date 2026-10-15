@@ -639,3 +639,38 @@ body.sub{padding-top:0}
 @media (max-width:720px){
   .vh-hero-todo{padding-top:150px}
 }
+
+/* ===================================================================
+   유튜브 라이트 임베드
+   =================================================================== */
+.yt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.yt-grid-4{grid-template-columns:repeat(4,1fr)}
+.yt{display:flex;flex-direction:column}
+.yt-thumb{
+  position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;cursor:pointer;background:#000;transition:.18s;
+}
+.yt-thumb img{width:100%;height:100%;object-fit:cover;opacity:.88;transition:.3s}
+.yt-thumb:hover{border-color:rgba(240,160,32,.7);transform:translateY(-2px)}
+.yt-thumb:hover img{opacity:1;transform:scale(1.03)}
+.yt-play{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:56px;height:40px;border-radius:9px;background:rgba(18,16,14,.78);
+  border:1px solid rgba(255,255,255,.22);display:grid;place-items:center;transition:.18s;
+}
+.yt-play::after{content:'';border-style:solid;border-width:8px 0 8px 14px;border-color:transparent transparent transparent var(--accent);margin-left:3px}
+.yt-thumb:hover .yt-play{background:var(--accent);border-color:var(--accent)}
+.yt-thumb:hover .yt-play::after{border-left-color:#1A1205}
+.yt iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:var(--radius);background:#000}
+.yt-meta{padding:13px 2px 0}
+.yt-show{font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--accent);display:block;margin-bottom:5px}
+.yt-tv .yt-show{color:var(--moss)}
+.yt-meta h3{font-size:15px;line-height:1.45;font-weight:600}
+.yt-date{font-size:11.5px;color:var(--txt-3);display:block;margin-top:5px}
+.yt-more{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+@media (max-width:1080px){.yt-grid,.yt-grid-4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.yt-grid,.yt-grid-4{grid-template-columns:1fr}}
+.yt-ref{margin-top:40px;border-top:1px solid var(--line);padding-top:30px}
+.yt-ref h3{font-size:20px;margin-bottom:18px}
+.yt-ref .yt-grid{grid-template-columns:repeat(2,1fr)}
+.yt-ref-card{max-width:520px}

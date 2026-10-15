@@ -162,8 +162,36 @@ window.JERAZIN_FACT = {
   },
 
   media: {
-    tv: { v: ["tvN '바퀴 달린 집'", "tvN '더 짠내투어'"], confirmed: true },
-    channel: { v: '제라진어드벤쳐TV', confirmed: true }
+    /* ★2026-10-16 현행 사이트 임베드에서 실제 확인한 방송.
+       GDR 보고서의 "tvN 바퀴 달린 집"은 확인되지 않아 badge에서 제외했다(업체 확인 필요). */
+    tv: { v: ["KBS '배틀트립'", "tvN Joy '더 짠내투어'"], confirmed: true },
+    badge: { v: 'KBS 배틀트립 · tvN 짠내투어 방영', confirmed: true },
+    channel: { v: 'Jerazin Adventures (제라진어드벤쳐TV)', confirmed: true },
+    channelUrl: { v: 'https://www.youtube.com/@ATOP1995', confirmed: true },
+    wheelhouse: { v: "tvN '바퀴 달린 집' 방영 여부", confirmed: false, note: 'GDR 보고서 기재 — 현행 사이트에서 클립 미확인, 업체 확인 필요' }
+  },
+
+  /* 외부 채널 참고 영상 — 제라진 제작물이 아니므로 채널명을 반드시 함께 노출한다 */
+  refVideos: {
+    h1: { id: 'qVwbQCXWkvo', title: '오프로드의 끝판왕! 허머 H1 (AM General Hummer H1)의 기술편',
+          channel: '삼성화재 모빌리티뮤지엄', note: '차량 이해를 돕는 외부 영상' }
+  },
+
+  /* 유튜브 영상 — 현행 사이트(jejuoffroad.kr/media, /jerazintv)에 실제로 임베드된 것들 */
+  videos: {
+    broadcast: [
+      { id: '4VwifUcd8aU', title: '말문이 막힐 정도의 짜릿한 오프로드 투어!', show: "KBS '배틀트립'", date: '2019.11.09' },
+      { id: 'EpRM1xQfSRI', title: '명수·준호·조이의 오프로드 플렉스 타임', show: "tvN Joy '더 짠내투어' EP.116", date: '하이라이트' },
+      { id: 'gR3QeaECI_U', title: '롤러코스터잖아! 자연 + 오프로드 ≒ 쥬라기', show: "tvN Joy '서울메이트3' EP.11", date: '2019.09.09' },
+      { id: 'CKTpdWemdB8', title: '게임을 이겼는데 왜 벌칙 같지? 오프로드의 매운맛', show: "tvN Joy '더 짠내투어' EP.116", date: '본편 클립' }
+    ],
+    own: [
+      { id: 'Ulcdp9jj-E0', title: 'Humvee H1 M998 HMMWV 험비 오프로드가 제주도에 있는 것을 아시나요?', tag: '험비 다큐' },
+      { id: 'KBCxflcmVUY', title: "제라진 제주오프로드 ASMR 30'", tag: 'ASMR' },
+      { id: 'WS5CO8qCosU', title: '봄맞이 오프로드! 그 끝은 어디에 있나?', tag: '주행' },
+      { id: 'FYln0TT7mUk', title: '제라진 RC와 Shooting!을 준비하면서', tag: '기획' },
+      { id: '7E36D8K38HM', title: '제라진 제주오프로드 유튜브 시작을 알립니다', tag: '채널 소개' }
+    ]
   },
 
   reviews: [
