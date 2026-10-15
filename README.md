@@ -40,6 +40,8 @@ site/
 ├ assets/js/fact.js       ★사실표 — 모든 수치의 단일 출처
 ├ assets/js/main.js       공통 렌더(차량 카드·FAQ·코스 핀·플레이스홀더 표시)
 ├ assets/js/reserve.js    예약 위저드 + e-Waiver 동작
+├ assets/js/pano.js       360° 파노라마 뷰어(three.js, 클릭 시 로드)
+├ sitemap.xml · robots.txt
 ├ assets/img/             시안용 이미지(드론·FPV·360 원본에서 추출)
 ├ assets/video/hero-pc.mp4  히어로 루프(임시 인코딩, 5.8MB)
 └ _시안캡처/              전체 페이지 캡처
@@ -73,13 +75,28 @@ python3 tools/build_pages.py      # vehicles/reserve/about/course/crew/media/vis
 |---|---|---|
 | 히어로 영상 | Mavic 3 Cine 원본 6초 발췌, 720p 5.8MB | ffmpeg 재인코딩 1080p ≤3MB + WebM, 모바일 세로 버전 |
 | 차량 사진 | 험비·루비콘만 실촬, 나머지는 촬영 자리 | 차량 5종 전용 디테일 촬영 |
-| 드라이버·방송 클립 | 자리 표시 | 인물 촬영 / 방송 클립 사용 협의 |
+| 방송·유튜브 | ✅ 실제 영상 연결(방송 4·자체 5·참고 1) | 그대로 유지, 신규 영상만 fact.js에 추가 |
+| 드라이버 인물 | 자리 표시 | 인물 촬영 |
 | 지도 | 자리 표시 | 카카오맵·네이버지도 API + 주차 진입로 핀 |
-| 360 체험 | 정지 파노라마 | 8K 360 영상 + SRT GPS로 코스맵 구간 연동 |
+| 360 체험 | ✅ 실제 뷰어 동작(지점 3곳, equirect 스틸) | 360 **영상** 재생 + SRT GPS로 코스맵 구간 연동 |
 | 예약 결제 | 위저드까지만, 결제 버튼은 안내 문구 | 아임웹·네이버예약 딥링크(B안) |
 | 달력 잔여 | 임시 데모 값 | 예약 시스템 API 연동 |
 | 보험 정보 | "확인 필요" 표시 | 업체 증빙 확인 후 보장 내용 기재 |
 | 갤러리 인물 | 드론 원본 프레임(임시) | 초상권 동의 받은 고객 사진만 |
+
+## 공유·검색 설정
+
+- OG/트위터 카드(공유 썸네일 `assets/img/og-image.jpg`), 파비콘, canonical — 전 페이지
+- 구조화 데이터는 **런타임 주입**(main.js)이라 fact.js 값과 자동으로 일치한다.
+  LocalBusiness+TouristAttraction(HOME) · Product(차량) · VideoObject(미디어) · FAQPage(오시는 길)
+- **미확정 요금은 구조화 데이터에 넣지 않는다**(검색 결과 오표시 방지)
+- 도메인이 바뀌면 `tools/build_*.py` 의 BASE 상수, `sitemap.xml`, `robots.txt` 를 함께 수정
+
+## GitHub
+
+- 저장소 `jejugrapher/jejuoffroad`(Public), 로컬 클론 `../repo_jerajin`
+- 배포 흐름: `site/` 에서 수정 → rsync 로 `repo_jerajin/` 동기화 → 커밋·푸시
+- 배포키 `~/.ssh/jerajin_deploy`(저장소 Deploy keys에 write 권한으로 등록됨)
 
 ## 사용한 도구 (이 Mac에 ffmpeg이 없어 직접 만든 것)
 
