@@ -177,8 +177,15 @@ window.JERAZIN_FACT = {
           channel: '삼성화재 모빌리티뮤지엄', note: '차량 이해를 돕는 외부 영상' }
   },
 
-  /* 유튜브 영상 — 현행 사이트(jejuoffroad.kr/media, /jerazintv)에 실제로 임베드된 것들 */
+  /* 유튜브 영상 — 현행 사이트(jejuoffroad.kr/media, /jerazintv)에 실제로 임베드된 것들
+     featured = 2026-10-19 체험 촬영분(제주그래퍼 채널 업로드, 크레딧 표기 필요) */
   videos: {
+    featured: [
+      { id: 'V7LI2nYlAeg', title: '제주에 이런 길이 있습니다 — 6.5km 오프로드 체험',
+        tag: '코스 영상', by: '촬영·편집 제주그래퍼', date: '2026.10' },
+      { id: 'Ad6uhEMc-XM', title: '포장된 길은 없습니다 — 제주 13만 평 오프로드',
+        tag: '쇼츠', by: '촬영·편집 제주그래퍼', date: '2026.10' }
+    ],
     broadcast: [
       { id: '4VwifUcd8aU', title: '말문이 막힐 정도의 짜릿한 오프로드 투어!', show: "KBS '배틀트립'", date: '2019.11.09' },
       { id: 'EpRM1xQfSRI', title: '명수·준호·조이의 오프로드 플렉스 타임', show: "tvN Joy '더 짠내투어' EP.116", date: '하이라이트' },

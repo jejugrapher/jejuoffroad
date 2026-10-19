@@ -112,13 +112,21 @@
     });
     return el;
   }
-  ['ytBroadcast', 'ytOwn'].forEach(function (id) {
+  ['ytFeatured', 'ytBroadcast', 'ytOwn'].forEach(function (id) {
     var box = document.getElementById(id);
     if (!box) return;
-    var list = id === 'ytBroadcast' ? F.videos.broadcast : F.videos.own;
+    var list = id === 'ytFeatured' ? (F.videos.featured || [])
+             : id === 'ytBroadcast' ? F.videos.broadcast : F.videos.own;
     var limit = +box.dataset.limit || list.length;
     list.slice(0, limit).forEach(function (v) {
-      box.appendChild(ytCard(v, id === 'ytBroadcast' ? 'tv' : 'own'));
+      var card = ytCard(v, id === 'ytBroadcast' ? 'tv' : 'own');
+      if (v.by) {
+        var by = document.createElement('span');
+        by.className = 'yt-by';
+        by.textContent = v.by;
+        card.querySelector('.yt-meta').appendChild(by);
+      }
+      box.appendChild(card);
     });
   });
 
